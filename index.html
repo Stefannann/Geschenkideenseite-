@@ -1,15 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylsheet" href="style.css">
+    <title>Geschenkideen Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        src="script.js"
-    </script>
-    
+    <header class="hero">
+        <div class="hero__content">
+            <h1>Finde die perfekte Geschenkidee</h1>
+            <p>Wähle Anlass, Interessen und Budget aus – wir schlagen dir passende Inspirationen vor.</p>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="controls" aria-labelledby="filter-heading">
+            <h2 id="filter-heading">Filter</h2>
+            <div class="control-group">
+                <label for="recipient">Für wen suchst du ein Geschenk?</label>
+                <select id="recipient">
+                    <option value="">Beliebig</option>
+                    <option value="partner">Partner:in</option>
+                    <option value="freund">Freund:in</option>
+                    <option value="familie">Familie</option>
+                    <option value="kollege">Kolleg:in</option>
+                    <option value="kind">Kind</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="interest">Welche Interessen treffen zu?</label>
+                <select id="interest">
+                    <option value="">Beliebig</option>
+                    <option value="kulinarik">Kulinarik &amp; Genuss</option>
+                    <option value="technik">Technik &amp; Gadgets</option>
+                    <option value="wellness">Wellness &amp; Entspannung</option>
+                    <option value="erlebnis">Erlebnisse &amp; Abenteuer</option>
+                    <option value="kreativ">Kreativ &amp; DIY</option>
+                </select>
+            </div>
+            <fieldset class="control-group" aria-labelledby="budget-label">
+                <legend id="budget-label">Budget</legend>
+                <div class="budget-options">
+                    <label><input type="radio" name="budget" value="" checked> Egal</label>
+                    <label><input type="radio" name="budget" value="günstig"> Bis 25 €</label>
+                    <label><input type="radio" name="budget" value="mittel"> 25 – 75 €</label>
+                    <label><input type="radio" name="budget" value="premium"> Über 75 €</label>
+                </div>
+            </fieldset>
+            <div class="actions">
+                <button id="suggest-button" type="button">Ideen anzeigen</button>
+                <button id="random-button" type="button" class="secondary">Überrasch mich</button>
+            </div>
+        </section>
+
+        <section class="results" aria-live="polite">
+            <div class="results__header">
+                <h2>Deine Geschenkideen</h2>
+                <p id="result-count">Wähle Filter aus oder lass dich überraschen.</p>
+            </div>
+            <div id="gift-list" class="gift-list"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>🎁 Tipp: Persönliche Worte machen jedes Geschenk noch besonderer!</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

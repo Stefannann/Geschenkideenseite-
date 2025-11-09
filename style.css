@@ -1,0 +1,276 @@
+:root {
+    --accent: #ff7a59;
+    --accent-dark: #d95b3d;
+    --bg: #f9f5ff;
+    --text: #2f2a3b;
+    --muted: #6a6280;
+    --card: #ffffff;
+    --shadow: 0 20px 45px -20px rgba(41, 27, 71, 0.45);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    padding: 4rem 1.5rem 3rem;
+    background: radial-gradient(circle at top left, rgba(255, 122, 89, 0.25), transparent 55%),
+                radial-gradient(circle at top right, rgba(127, 105, 255, 0.3), transparent 45%),
+                linear-gradient(135deg, #fff8f6, #f1ecff 60%);
+    text-align: center;
+}
+
+.hero__content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 600;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.layout {
+    width: min(1100px, 90vw);
+    margin: -60px auto 0;
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.controls,
+.results {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.controls h2,
+.results h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.control-group label,
+.control-group legend {
+    font-weight: 600;
+}
+
+select,
+button,
+input[type="radio"] {
+    font-family: inherit;
+}
+
+select {
+    padding: 0.65rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(47, 42, 59, 0.15);
+    background: #fff;
+    color: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(255, 122, 89, 0.15);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.budget-options {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.budget-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.75rem 1.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+button#suggest-button {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 15px 35px -18px rgba(255, 122, 89, 0.8);
+}
+
+button#suggest-button:hover,
+button#suggest-button:focus {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+}
+
+button.secondary {
+    background: rgba(127, 105, 255, 0.12);
+    color: #5d49c1;
+}
+
+button.secondary:hover,
+button.secondary:focus {
+    background: rgba(127, 105, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.results__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+#result-count {
+    color: var(--muted);
+}
+
+.gift-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    border-radius: 18px;
+    background: rgba(127, 105, 255, 0.08);
+    color: var(--muted);
+    text-align: center;
+    font-weight: 500;
+}
+
+.gift-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(244, 240, 255, 0.8));
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 18px 40px -24px rgba(44, 30, 76, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.gift-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(127, 105, 255, 0.18), transparent 45%);
+    pointer-events: none;
+}
+
+.gift-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.gift-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.gift-card span {
+    font-weight: 600;
+    color: var(--accent-dark);
+}
+
+.gift-card a {
+    align-self: flex-start;
+    margin-top: auto;
+    text-decoration: none;
+    font-weight: 600;
+    color: #5d49c1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.gift-card a::after {
+    content: "→";
+    transition: transform 0.2s ease;
+}
+
+.gift-card a:hover::after {
+    transform: translateX(4px);
+}
+
+.footer {
+    margin-top: auto;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+@media (max-width: 960px) {
+    .layout {
+        grid-template-columns: 1fr;
+        margin-top: -40px;
+    }
+
+    .controls,
+    .results {
+        padding: 1.75rem;
+    }
+
+    .actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
