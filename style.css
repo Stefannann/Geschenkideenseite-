@@ -245,9 +245,66 @@ button.secondary:focus {
 
 .footer {
     margin-top: auto;
-    padding: 2rem 1rem;
-    text-align: center;
+    padding: 2.5rem 1.5rem 3rem;
+    background: linear-gradient(0deg, rgba(127, 105, 255, 0.06), transparent 65%);
     color: var(--muted);
+}
+
+.footer__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.footer__tip {
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.impressum {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px -22px rgba(44, 30, 76, 0.4);
+    display: grid;
+    gap: 0.75rem;
+}
+
+.impressum h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.impressum__legal,
+.impressum__responsibility {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.footer a {
+    color: #5d49c1;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus {
+    text-decoration: underline;
+}
+
+@media (min-width: 720px) {
+    .footer__inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: start;
+    }
+
+    .footer__tip {
+        text-align: left;
+        font-size: 1.05rem;
+    }
 }
 
 @media (max-width: 960px) {
